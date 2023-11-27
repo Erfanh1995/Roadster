@@ -1,0 +1,5 @@
+cd /home/jsle3577/JavaMapConstruction/runconfigurations/car/
+rm *.pbs.* > /dev/null 2>&1
+cd ../hiking
+rm *.pbs.* > /dev/null 2>&1
+echo "Done"

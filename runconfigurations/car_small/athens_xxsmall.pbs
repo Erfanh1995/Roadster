@@ -1,0 +1,8 @@
+#!/bin/bash
+#PBS -P BBMC
+#PBS -l select=1:ncpus=5:mem=6GB
+#PBS -l walltime=00:04:00
+
+cd /home/jsle3577/JavaMapConstruction
+
+java -cp target/MapConstructionWeb-1.0-SNAPSHOT.jar mapconstruction.starter.Starter -p artemis-4.yml -d athens_xxsmall -call

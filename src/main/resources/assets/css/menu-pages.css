@@ -1,0 +1,62 @@
+.no.example {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+}
+
+.no.example .title {
+    text-align: left !important;
+}
+
+.tiny-table.trajectories-selector-table td{
+    padding: 0 !important;
+}
+
+.tiny-table .ui.checkbox{
+    width: 100%;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    cursor: pointer;
+}
+
+.tiny-table .ui.checkbox label{
+    padding-bottom: 5px !important;
+    margin-top: 5px !important;
+    vertical-align: middle;
+    display: block;
+}
+
+.tiny-table th{
+    padding: 8px 15px !important;
+}
+
+#sidebar-bundles .epsilon-multiple-selector .ui.dropdown{
+    width: 100% !important;
+}
+
+#sidebar-bundles .center-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar-ui .ui.checkbox.extra-margin,
+#sidebar-roadmap .ui.checkbox.extra-margin{
+    display: table;
+}
+
+.ui.buttons.small-ver-margin{
+    margin-bottom:10px;
+}
+
+.label-like-text{
+    display: block;
+    margin: 0 0 .28571429rem 0;
+    color: rgba(0,0,0,.87);
+    font-size: .92857143em;
+    font-weight: 700;
+    text-transform: none;
+}

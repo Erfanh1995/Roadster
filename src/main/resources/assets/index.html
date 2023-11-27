@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Map construction</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Disable caching-->
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+
+    <link rel="shortcut icon" href="256favicon.ico" type="image/x-icon">
+    <!-- Pure CSS deps -->
+    <link rel="stylesheet" type="text/css" href="css/deps/page-loader.css">
+    <!-- Pure Javascript deps -->
+    <script src="js/deps/jquery-3.1.1.min.js"></script>
+    <script src="js/deps/coordinate-converter.js"></script>
+    <script src="js/deps/color-picker.js"></script>
+    <script src="js/deps/jquery.tablesorter.min.js"></script>
+    <script src="js/deps/XMLWriter.js"></script>
+
+    <!-- CSS deps accompanied by a javascript file -->
+    <link rel="stylesheet" type="text/css" href="css/deps/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="css/deps/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="css/deps/semantic-range.css">
+    <link rel="stylesheet" type="text/css" href="css/deps/ol.min.css">
+
+    <!-- Javascript deps accompanied by a css file -->
+    <script src="js/deps/jquery-ui.min.js"></script>
+    <script src="semantic/semantic.min.js"></script>
+    <script src="js/deps/nprogress.js"></script>
+    <script src="js/deps/semantic-range.js"></script>
+    <script src="js/deps/ol-6.3.1.min.js"></script>
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/maps.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-pages.css">
+    <link rel="stylesheet" type="text/css" href="css/menu-bundle.css">
+
+
+    <!-- Custom Javascript -->
+    <script src="js/controller.js"></script>
+    <script src="js/serverless.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/util/geometryutil.js"></script>
+    <script src="js/util/rectangle.js"></script>
+
+    <script src="js/maps/maps-drawing-options.js"></script>
+    <script src="js/maps/maps-layers.js"></script>
+    <script src="js/maps/maps-config.js"></script>
+    <script src="js/maps/maps-styles.js"></script>
+
+    <script src="js/drawing/draw-general.js"></script>
+    <script src="js/drawing/draw-actual-objects.js"></script>
+    <script src="js/drawing/draw-kmllayer.js"></script>
+
+    <script src="js/drawing/draw-trajectories.js"></script>
+    <script src="js/drawing/draw-bundles.js"></script>
+    <script src="js/drawing/draw-intersections.js"></script>
+    <script src="js/drawing/draw-connections.js"></script>
+    <script src="js/drawing/draw-road-map.js"></script>
+
+    <script src="js/menu/menu-trajectories.js"></script>
+    <script src="js/menu/menu-bundles.js"></script>
+    <script src="js/menu/menu-intersections.js"></script>
+    <script src="js/menu/menu-connections.js"></script>
+    <script src="js/menu/menu-road-map.js"></script>
+
+    <script src="js/menu/menu.js"></script>
+    <script src="js/menu/menu-ui.js"></script>
+    <script src="js/menu/menu-compute.js"></script>
+    <script src="js/menu/menu-tables.js"></script>
+
+
+</head>
+<body>
+<div id="pre-loader"> <!-- Page loader after selection of file -->
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<div id="path-selector">
+    <a href="#" class="ui card path-card">
+        <div class="content default-cursor">
+            <div class="header" id="firstPageHeader">Please choose your action</div>
+            <div class="meta">
+                <span class="category" id="firstPageMeta">Note: Datasets should be a subfolder of data, a folder next to main.py.</span>
+            </div>
+            <div class='ui form' id="firstPageForm">
+                <div class="grouped fields">
+                    <div class='field'>
+                        <div class='ui radio checkbox check-data-or-state check-data-or-state-dataset'>
+                            <input type='radio' class='hidden' tabindex="0" name='checkDataOrState' value="dataset"
+                                   checked="checked">
+                            <label>Begin with a dataset</label>
+                        </div>
+                    </div>
+                    <div class='field'>
+                        <div class='ui radio checkbox check-data-or-state check-data-or-state-state'>
+                            <input type='radio' class='hidden' tabindex="0" name='checkDataOrState' value="state">
+                            <label>Continue with a previous state of the program</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui checkbox walkingDatasetCheckBox" style="margin-top: 20px; margin-bottom: 10px; display:none;">
+                <input type="checkbox" name="walkingDatasetEnabled">
+                <label>Walking dataset? (If yes, we disable turn detection)</label>
+            </div>
+            <div class="ui checkbox SavedStateCheckboxCalculateRoadMap" style="margin-top: 20px; margin-bottom: 10px;">
+                <input type="checkbox" name="savedStateCheckboxCalculateRoadMap">
+                <label>Calculate the roadMap right after the saved state is loaded.</label>
+            </div>
+            <div class="description">
+                <div class="ui cards">
+                    <div class="card fullwidth-card path-card-collector">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+<div id="container"> <!-- After page was loaded -->
+    <div class="left sidebar">
+        <div class="ui card sidebar-card">
+            <div class="ui flex top attached basic buttons sidebar-menu-top">
+                <div class="ui button menu-button selected-menu">
+                    Progress
+                </div>
+                <div class="ui button menu-button">
+                    UI
+                </div>
+                <div class="ui button menu-button">
+                    Trajectories
+                </div>
+                <div class="ui button menu-button">
+                    Bundles
+                </div>
+            </div>
+            <div id="sidebar-progress" class="content sidebar-content">
+                <div class="ui form">
+                    <div class="field">
+                        <div class="label-like-text">Current dataset:
+                            <div class="dataset-folder" style="display: inline-block;"></div>
+                        </div>
+                        <div class="label-like-text">Walking dataset:
+                            <div class="walking-dataset" style="display: inline-block;">
+                                <div class="walking-data-enabled" style="display:none;">Yes</div>
+                                <div class="walking-data-disabled" style="display:none;">No</div>
+                            </div>
+                        </div>
+                        <div class="label-like-text">
+                            <div class="walking-data-info" style="display: inline-block;">When we select a dataset as a walking dataset, we disable turn detection. Furthermore, we enable simplification and z-artifact removal.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui form">
+                    <div class="field">
+                        <label>Notes:</label>
+                        <textarea></textarea>
+                    </div>
+                </div>
+
+                <div class="ui form m-margin-top">
+                    <div class="field">
+                        <button class="ui red button fluid" onclick="resetApplication();">
+                            Reset Application
+                        </button>
+                    </div>
+                </div>
+
+                <!--<div class="no example">-->
+                <!--<div class="ui vertical steps">-->
+                <!--<div class="active step">-->
+                <!--<i class="compass icon"></i>-->
+                <!--<div class="content">-->
+                <!--<div class="title">Unfiltered</div>-->
+                <!--<div class="description">Raw GPS trajectories</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="disabled step">-->
+                <!--<i class="filter icon"></i>-->
+                <!--<div class="content">-->
+                <!--<div class="title">Filtered</div>-->
+                <!--<div class="description">Filtered out GPS noise</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="disabled step">-->
+                <!--<i class="object group icon"></i>-->
+                <!--<div class="content">-->
+                <!--<div class="title">Bundles</div>-->
+                <!--<div class="description">Created bundles</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="disabled step">-->
+                <!--<i class="map icon"></i>-->
+                <!--<div class="content">-->
+                <!--<div class="title">Road map</div>-->
+                <!--<div class="description">The computed road map</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div id="sidebar-ui" class="content sidebar-content hidden-content">
+                <div class="ui form">
+                    <div class="field">
+                        <div class="ui segment map-zoom-selector">
+                            <div class="ui input inline field">
+                                <label for="map-zoom-input" style="line-height: 38px;">Map zoom: </label>
+                                <input type="text" id="map-zoom-input" value="12">
+                            </div>
+                            <br>
+                            <div class="ui range" id="map-zoom-range"></div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Map Type (supplied by <a title="Maptiler" href="https://maptiler.com" target="_blank">maptiler.com</a>)</label>
+                        <div class="ui selection dropdown map-type">
+                            <input type="hidden" name="gender">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Default: Streets</div>
+                            <div class="menu">
+                                <div class="item" data-value="streets">Streets</div>
+                                <div class="item" data-value="default">Default (OSM)</div>
+                                <div class="item" data-value="basic">Basic</div>
+                                <div class="item" data-value="hybrid">Hybrid</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- THESE SETTINGS DO NOT APPLY TO OSM -->
+<!--                    <div class="field">-->
+<!--                        <label>Map Style</label>-->
+<!--                        <div class="ui selection dropdown map-style">-->
+<!--                            <div class="text"></div>-->
+<!--                            <i class="dropdown icon"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="field">-->
+<!--                        <label>Points of interest</label>-->
+<!--                        <div class="ui selection dropdown map-poi">-->
+<!--                            <div class="text"></div>-->
+<!--                            <i class="dropdown icon"></i>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="field">
+                        <div class="ui checked checkbox draw-maps-background extra-margin">
+                            <input type="checkbox" checked="" id="draw-maps-background-checkbox">
+                            <label for="draw-maps-background-checkbox">Show maps background</label>
+                        </div>
+                        <div class="ui checkbox draw-ground-truth-background extra-margin">
+                            <input type="checkbox" id="draw-ground-truth-checkbox">
+                            <label for="draw-ground-truth-checkbox">Show ground truth map</label>
+                        </div>
+                        <div class="ui checkbox hide-ground-truth-invalid extra-margin">
+                            <input type="checkbox" id="hide-ground-truth-checkbox">
+                            <label for="hide-ground-truth-checkbox">Hide ground truth cutoff</label>
+                        </div>
+                        <div class="ui checkbox make-image-ready-div extra-margin">
+                            <input type="checkbox" id="make-image-ready">
+                            <label for="make-image-ready">Make image ready</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui form" style="margin-top: 40px;">
+                    <div class="field">
+                        <label>Line drawing properties</label>
+                        <div class="ui checked checkbox enable-all-trajectories-drawing extra-margin">
+                            <input type="checkbox" checked="" id="enable-all-trajectories-checkbox">
+                            <label for="enable-all-trajectories-checkbox">Draw all trajectories</label>
+                        </div>
+                        <div class="ui checked checkbox enable-table-drawing extra-margin">
+                            <input type="checkbox" checked="" id="enable-table-drawing-checkbox">
+                            <label for="enable-table-drawing-checkbox">Draw table selected entries</label>
+                        </div>
+                        <div class="ui checked checkbox enable-hover-drawing extra-margin">
+                            <input type="checkbox" checked="" id="enable-hover-drawing-checkbox">
+                            <label for="enable-hover-drawing-checkbox">Draw hovered entries</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui form" style="margin-top: 40px;">
+                    <div class="field bundle-drawing-options">
+                        <label>Bundle drawing properties</label>
+                        <!-- This is automatically created -->
+                    </div>
+                </div>
+
+
+                <div class="ui form" style="margin-top: 40px;">
+                    <div class="field road-map-drawing-options">
+                        <label>Road Map drawing properties</label>
+                        <!-- This is automatically created -->
+                    </div>
+                </div>
+
+                <div class="ui form" style="margin-top: 40px;">
+                    <div class="field">
+                        <label>Colors</label>
+                        <div class="ui extra-margin display-table">
+                            <button class="ui icon left floated button pico-button background-trajectory-color">
+                                <i class="caret down icon" id="background-color-opener"></i>
+                            </button>
+                            <label class="left floated icon-line-height">Maps background color</label>
+                        </div>
+                        <div class="ui extra-margin display-table">
+                            <button class="ui icon left floated button pico-button standard-trajectory-color">
+                                <i class="caret down icon" id="standard-color-opener"></i>
+                            </button>
+                            <label class="left floated icon-line-height">Standard trajectory color</label>
+                        </div>
+                        <div class="ui extra-margin display-table">
+                            <button class="ui icon left floated button pico-button table-trajectory-color">
+                                <i class="caret down icon" id="table-color-opener"></i>
+                            </button>
+                            <label class="left floated icon-line-height">Table trajectory color</label>
+                        </div>
+                        <div class="ui extra-margin display-table">
+                            <button class="ui icon left floated button pico-button hover-trajectory-color">
+                                <i class="caret down icon" id="hover-color-opener"></i>
+                            </button>
+                            <label class="left floated icon-line-height">Hover trajectory color</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui form" style="margin-top: 40px;">
+                    <div class="field">
+                        <label>Create a smaller cut-section</label>
+                        <button class="mini ui yellow inverted button enable-table-drawing extra-margin" onclick="showRectangle()">
+                            Show rectangle
+                        </button>
+                        <button class="mini ui yellow inverted button enable-table-drawing extra-margin" onclick="removeRectangle()">
+                            Delete rectangle
+                        </button>
+                        <button class="mini ui red inverted button enable-table-drawing extra-margin" onclick="resetRectanglePosition()">
+                            Reset rectangle position
+                        </button>
+                        <button class="mini ui green inverted button enable-table-drawing extra-margin" onclick="showRectanglePositions()">
+                            Show dimensions
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar-compute" class="content sidebar-content hidden-content">
+
+                <div class="ui form s-margin-bottom">
+                    <div class="field">
+                        <label>Compute the evolution diagram of the bundles.</label>
+                        <button class="ui primary button" onclick="computeBundles();">
+                            Compute
+                        </button>
+                    </div>
+                </div>
+                <div class="ui form s-margin-bottom">
+                    <div class="field">
+                        <label>Compute the final road map.</label>
+                        <button class="ui primary button" onclick="computeRoadNetwork();">
+                            Compute
+                        </button>
+                    </div>
+                </div>
+                <div class="ui form s-margin-bottom">
+                    <div class="field">
+                        <label>Compute the evolution diagram and the road map.</label>
+                        <button class="ui primary button" onclick="computeBundlesAndRoadMap();">
+                            Compute
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar-roadmap" class="content sidebar-content hidden-content">
+                <div class="ui form s-margin-bottom">
+                    <div class="field">
+                        <button class="ui primary button fluid" onclick="computeRoadNetwork();">
+                            Compute Roadmap
+                        </button>
+                    </div>
+                </div>
+                <div class="ui form" style="">
+                    <div class="field">
+                        <label>Line drawing properties</label>
+                        <div class="ui checked checkbox enable-all-connection-vertices-drawing extra-margin">
+                            <input type="checkbox" checked="" id="enable-all-connection-vertices">
+                            <label for="enable-all-connection-vertices">Show connection vertices</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="two ui buttons small-ver-margin">
+                    <button class="ui attached button" onclick="selectAllOfTable($(this))">Select all</button>
+                    <button class="attached ui button" onclick="deselectAllOfTable($(this))">Deselect all</button>
+                </div>
+
+                <table class="bottom attached ui celled table selector-table tiny-table road-edges-selector-table"
+                       id="road-edges-selector-table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+            <div id="sidebar-trajectories" class="content sidebar-content hidden-content">
+                <div class="two ui buttons small-ver-margin">
+                    <button class="ui attached button" onclick="selectAllOfTable($(this))">Select all</button>
+                    <button class="attached ui button" onclick="deselectAllOfTable($(this))">Deselect all</button>
+                </div>
+                <table class="bottom attached ui celled table tiny-table selector-table trajectories-selector-table">
+                    <thead>
+                    <tr>
+                        <th id="trajectories-table-title">GPS trajectories</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div id="sidebar-bundles" class="content sidebar-content hidden-content">
+                <div class="ui form s-margin-bottom">
+                    <div class="ui field">
+                        <button class="ui button primary fluid" onclick="computeBundles();"> Compute Bundles </button>
+                    </div>
+                </div>
+                <div class="two ui buttons small-ver-margin">
+                    <button class="ui attached button" onclick="selectAllOfTable($(this))">Select all</button>
+                    <button class="attached ui button" onclick="deselectAllOfTable($(this))">Deselect all</button>
+                </div>
+                <div class="ui form">
+                    <div class="inline fields">
+                        <div class="three wide field">
+                            <label>Eps</label>
+                        </div>
+                        <div class="fourteen wide field epsilon-multiple-selector">
+                            <select multiple="" class="ui dropdown" id="epsilon-selector" style="width: 100%;">
+                                <option value="">Select epsilon</option>
+                                <option value="5.0">5.0</option>
+                                <option value="10.0">10.0</option>
+                                <option value="15.0">15.0</option>
+                                <option value="20.0">20.0</option>
+                                <option value="25.0">25.0</option>
+                                <option value="30.0">30.0</option>
+                                <option value="35.0">35.0</option>
+                                <option value="40.0">40.0</option>
+                                <option value="45.0">45.0</option>
+                                <option value="50.0">50.0</option>
+                                <option value="55.0">55.0</option>
+                                <option value="60.0">60.0</option>
+                                <option value="65.0">65.0</option>
+                                <option value="70.0">70.0</option>
+                                <option value="75.0">75.0</option>
+                                <option value="80.0">80.0</option>
+                                <option value="85.0">85.0</option>
+                                <option value="90.0">90.0</option>
+                                <option value="95.0">95.0</option>
+                                <option value="100.0">100.0</option>
+                                <option value="105.0">105.0</option>
+                                <option value="110.0">110.0</option>
+                                <option value="115.0">115.0</option>
+                                <option value="120.0">120.0</option>
+                                <option value="125.0">125.0</option>
+                                <option value="130.0">130.0</option>
+                                <option value="135.0">135.0</option>
+                                <option value="140.0">140.0</option>
+                                <option value="145.0">145.0</option>
+                                <option value="150.0">150.0</option>
+                                <option value="155.0">155.0</option>
+                                <option value="160.0">160.0</option>
+                                <option value="165.0">165.0</option>
+                                <option value="170.0">170.0</option>
+                                <option value="175.0">175.0</option>
+                                <option value="180.0">180.0</option>
+                                <option value="185.0">185.0</option>
+                                <option value="190.0">190.0</option>
+                                <option value="195.0">195.0</option>
+                                <option value="200.0">200.0</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $('#epsilon-selector').dropdown();
+                </script>
+                <div class="ui form">
+                    <div class="inline fields">
+                        <div class="three wide field">
+                            <label>Min. k</label>
+
+                        </div>
+                        <div class="five wide field">
+                            <input id="bundle-min-k" type="text" placeholder="0.0">
+                        </div>
+                        <div class="one wide field">
+
+
+                        </div>
+                        <div class="three wide field">
+                            <label>Max. k</label>
+
+                        </div>
+                        <div class="five wide field">
+                            <input id="bundle-max-k" type="text" placeholder="100.0">
+                        </div>
+                    </div>
+                </div>
+                <div class="ui form">
+                    <div class="inline fields">
+                        <div class="sixteen wide field center-button">
+                            <div class="ui buttons">
+                                <button class="ui button" onclick="clearBundleFilters()">Cancel</button>
+                                <div class="or"></div>
+                                <button class="ui positive button active" onclick="setBundleFilters()">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="bottom attached ui celled table selector-table tiny-table bundles-selector-table"
+                       id="bundles-selector-table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div id="sidebar-intersections" class="content sidebar-content hidden-content">
+                <div class="two ui buttons small-ver-margin">
+                    <button class="ui attached button" onclick="selectAllOfTable($(this))">Select all</button>
+                    <button class="attached ui button" onclick="deselectAllOfTable($(this))">Deselect all</button>
+                </div>
+                <table class="bottom attached ui celled table selector-table tiny-table intersection-selector-table"
+                       id="intersection-selector-table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div id="sidebar-connections" class="content sidebar-content hidden-content">
+                <div class="two ui buttons small-ver-margin">
+                    <button class="ui attached button" onclick="selectAllOfTable($(this))">Select all</button>
+                    <button class="attached ui button" onclick="deselectAllOfTable($(this))">Deselect all</button>
+                </div>
+                <table class="bottom attached ui celled table selector-table tiny-table connections-selector-table"
+                       id="connections-selector-table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div id="sidebar-map" class="content sidebar-content hidden-content">
+                <div class="two ui buttons small-ver-margin">
+                    <button class="ui attached button" onclick="selectAllOfTable($(this))">Select all</button>
+                    <button class="attached ui button" onclick="deselectAllOfTable($(this))">Deselect all</button>
+                </div>
+                <table class="bottom attached ui celled table selector-table tiny-table map-selector-table"
+                       id="map-selector-table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ui three bottom attached basic buttons sidebar-menu-bottom">
+<!--                <div class="ui button menu-button">-->
+<!--                    Trajectories-->
+<!--                </div>-->
+<!--                <div class="ui button menu-button">-->
+<!--                    Bundles-->
+<!--                </div>-->
+                <div class="ui button menu-button">
+                    RoadMap
+                </div>
+                <div class="ui button menu-button">
+                    Intersections
+                </div>
+                <div class="ui button menu-button">
+                    Connections
+                </div>
+                <!--<div class="ui button menu-button">-->
+                <!--Map-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="map right" id="olmap"></div>
+</div>
+    <script>
+        var map, vectorLayer, tileLayer, SOURCES = {
+            default: new ol.source.OSM(),
+            basic: new ol.source.TileJSON({
+                url: 'https://api.maptiler.com/maps/basic/tiles.json?key=HHjQJVpPl9qPZyQYZF6W',
+                tileSize: 512,
+                crossOrigin: 'anonymous'
+            }),
+            hybrid: new ol.source.TileJSON({
+                url: 'https://api.maptiler.com/maps/hybrid/tiles.json?key=HHjQJVpPl9qPZyQYZF6W',
+                tileSize: 512,
+                crossOrigin: 'anonymous'
+            }),
+            streets: new ol.source.TileJSON({
+                url: 'https://api.maptiler.com/maps/streets/tiles.json?key=HHjQJVpPl9qPZyQYZF6W',
+                tileSize: 512,
+                crossOrigin: 'anonymous'
+            })
+        };
+
+        function initMap() {
+            tileLayer = new ol.layer.Tile({
+                source: SOURCES.streets
+            });
+
+            // vectorLayer = {
+            //     trajectory: new ol.layer.Vector({
+            //         source: new ol.source.Vector(),
+            //         style: VectorStyleManager,
+            //         zIndex: 1
+            //     }),
+            //     groundTruth: new ol.layer.Vector({
+            //         source: new ol.source.Vector(),
+            //         style: VectorStyleManager,
+            //         zIndex: -1
+            //     }),new ol.layer.Vector({
+            //         source: new ol.source.Vector(),
+            //         style: VectorStyleManager,
+            //         zIndex: 5
+            //     }),
+            // }
+            //
+            // vectorLayer =
+
+            map = new ol.Map({
+                target: 'olmap',
+                layers: [ tileLayer ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([150.644, -34.397]),
+                })
+            });
+
+            // let currZoom = null;
+            // map.on('moveend', function(e) {
+            //     var newZoom = map.getView().getZoom();
+            //     if (currZoom !== newZoom) {
+            //         currZoom = newZoom;
+            //         updateZoom(map.getView().getZoom());
+            //     }
+            // });
+
+            // hide container after loading
+            $("#container").css("display", "none");
+        }
+        // var map;
+        //
+        // function initMap() {
+        //     map = new google.maps.Map(document.getElementById('map'), {
+        //         center: {lat: -34.397, lng: 150.644},
+        //         zoom: 8,
+        //         zoomControl: false,
+        //         mapTypeControl: false,
+        //         scaleControl: true,
+        //         streetViewControl: false,
+        //         rotateControl: true,
+        //         fullscreenControl: true
+        //     });
+        //
+        //     // Make sure the zoom updates with UI.
+        //     map.addListener('zoom_changed', function () {
+        //         updateZoom(map.getZoom());
+        //     });
+        //
+        //     // We update the map settings
+        //     updateMap();
+        // }
+        //
+        // window.onbeforeunload = function () {
+        //     return "Dude, are you sure you want to leave? Think of the kittens!";
+        // };
+        //
+        // function mapsControlsShowAll() {
+        //     mapsControlsShowAllOrNone(true);
+        // }
+        //
+        // function mapsControlsShowNone() {
+        //     mapsControlsShowAllOrNone(false);
+        // }
+        //
+        // function mapsControlsShowAllOrNone(bool) {
+        //     const options = {
+        //         zoomControl: bool,
+        //         mapTypeControl: bool,
+        //         scaleControl: bool,
+        //         streetViewControl: bool,
+        //         rotateControl: bool,
+        //         fullscreenControl: bool
+        //     };
+        //     map.setOptions(options);
+        // }
+        //
+        // function mapsControlsShowDefault() {
+        //     const options = {
+        //         zoomControl: false,
+        //         mapTypeControl: false,
+        //         scaleControl: true,
+        //         streetViewControl: false,
+        //         rotateControl: true,
+        //         fullscreenControl: true
+        //     };
+        //     map.setOptions(options);
+        // }
+    </script>
+<!--</div>-->
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+.table.tiny-table.bundles-selector-table,
+.table.tiny-table.bundles-selector-title {
+    table-layout: fixed;
+    overflow: hidden;
+    width: 100%;
+}
+
+.bundles-selector-table td {
+    line-height: 25px !important;
+}
+
+.simple-checkbox {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.simple-checkbox input {
+    left: 5px !important;
+}
+
+.simple-checkbox label {
+    padding: 0 !important;
+    margin: 0 0 0 3px !important;
+    width: 17px !important;
+}
+
+.tiny-table .ui.checkbox.simple-checkbox {
+    padding-left: 5px !important;
+    padding-right: 2px !important;
+    width: 37px;
+}
+
+.tiny-table .ui.checkbox td:not(:first-child) {
+    margin-left: 4px !important
+}
+
+.tiny-table.bundles-selector-table td,
+.tiny-table.intersection-selector-table td,
+.tiny-table.map-selector-table td{
+    padding: 0 0 0 4px !important;
+}
+
+.no-overflow-but-ellipsis {
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.tiny-table .ui.checkbox.simple-checkbox label {
+    margin-top: 4px !important;
+}
+
+.tiny-table tr td {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+

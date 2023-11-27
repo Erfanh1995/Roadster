@@ -1,0 +1,177 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+/*#path-selector,*/
+/*#container {*/
+/*    display: none;*/
+/*}*/
+
+.left.sidebar {
+    background-color: aliceblue;
+    width: 400px;
+    z-index: 500;
+    height: calc(100% - 4px);
+    /*align-self: left;*/
+    display: inline-block;
+    padding: 4px;
+    margin: 0;
+    /*border-right: 2px solid white;*/
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    background: aqua;
+    margin: auto;
+    overflow: hidden;
+}
+
+.left.sidebar {
+    height: 100%;
+    width: 400px;
+    float: left;
+    margin: 0;
+}
+
+.right {
+    margin: 0;
+    height: calc(100% - 4px);
+    width: auto;
+    background: white;
+    border: 2px solid white;
+}
+
+.map {
+    width: calc(100% - 400px);
+    top: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 400px;
+    display: inline-block;
+    position: absolute !important;
+}
+
+.sidebar-card {
+    width: 100% !important;
+    height: 100%;
+}
+
+.sidebar-content {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-menu-top {
+    display: block !important;
+}
+
+.sidebar-menu-bottom {
+    display: block !important;
+    width: 100% !important;
+}
+
+.path-selector {
+    position: relative;
+    clear: both;
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    vertical-align: center;
+}
+
+#path-selector .path-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 600px;
+    min-height: 600px;
+    max-height: calc(100% - 60px);
+}
+
+.ui.cards .card.fullwidth-card {
+    width: calc(100% - 15px);
+    margin-top: 1px;
+    /* margin-bottom: 15px; */
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.ui.card.path-card .content .description {
+    max-height: 500px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.description .ui.cards {
+    margin-top: 20px;
+    max-height: 500px;
+    display: block;
+}
+
+.path-card-collector .content:hover {
+    background-color: rgb(249, 250, 251) !important;
+}
+
+.path-card-collector .content {
+    max-height: 50px;
+    cursor: pointer !important;
+}
+
+.hidden-content {
+    visibility: hidden !important;
+    display: none;
+}
+
+.ui .ui.buttons .ui.button.menu-button.selected-menu {
+    background-color: #F0F0F0 !important;
+}
+
+.ui .ui.buttons.flex {
+    display: flex !important;
+}
+
+.header.vertical {
+    display: inline-block;
+    transform: translateX(-50%) translateY(50%) rotate(-90deg) translateX(50%);
+    vertical-align: middle;
+    line-height: 120px;
+}
+
+.default-cursor {
+    cursor: default !important;
+}
+
+.ui.extra-margin {
+    margin: 4px 0px 4px 0px;
+}
+
+.icon-line-height {
+    line-height: 25px;
+}
+
+.ui.icon.button.pico-button {
+    padding: 5px;
+    width: 26px;
+    height: 25px;
+}
+
+.display-table{
+    display: table;
+}
+
+.s-margin-bottom{
+    margin-bottom: 15px;
+}
+
+.m-margin-top {
+    margin-top: auto;
+}

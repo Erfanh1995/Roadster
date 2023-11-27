@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name> Roadmap </name>
+		<open>1</open>
+		<description> A Roadmap constructed by the Buchin et. al. Algorithm </description>
+		<Style id="roadSegment">
+			<LineStyle>
+				<color>ff2b39c0</color>
+				<width>4</width>
+			</LineStyle>
+		</Style>
+		<Folder>
+			<name> RoadMap </name>
+			<visibility>1</visibility>
+			<description> A collection of Road Sections in the RoadMap. </description>
+			<Placemark>
+				<name> Road Section 1</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.828019,38.097103,20
+						23.827691,38.097837,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 2</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.821130,38.075246,20
+						23.816966,38.075586,20
+						23.814673,38.075751,20
+						23.812414,38.075941,20
+						23.811991,38.075931,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 3</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.825318,38.099910,20
+						23.824975,38.098903,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 4</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.818727,38.085524,20
+						23.819021,38.086263,20
+						23.819120,38.086406,20
+						23.819587,38.087029,20
+						23.819720,38.087175,20
+						23.819852,38.087322,20
+						23.820089,38.087611,20
+						23.820673,38.088388,20
+						23.819752,38.088992,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 5</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823999,38.096419,20
+						23.823288,38.097036,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 6</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.821948,38.101172,20
+						23.822671,38.101575,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 7</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.822671,38.101575,20
+						23.823186,38.101225,20
+						23.823440,38.101081,20
+						23.824393,38.100455,20
+						23.825318,38.099910,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 8</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.826203,38.098460,20
+						23.825628,38.098670,20
+						23.824975,38.098903,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 9</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.825318,38.099910,20
+						23.826812,38.099945,20
+						23.826667,38.099614,20
+						23.826203,38.098460,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 10</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823288,38.097036,20
+						23.822366,38.097710,20
+						23.820438,38.098522,20
+						23.820035,38.097533,20
+						23.819979,38.097396,20
+						23.818568,38.097646,20
+						23.818572,38.098589,20
+						23.818664,38.099047,20
+						23.818895,38.099748,20
+						23.819222,38.100779,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 11</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.812443,38.100540,20
+						23.813416,38.101623,20
+						23.816251,38.101508,20
+						23.817751,38.101104,20
+						23.818502,38.100901,20
+						23.819222,38.100779,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 12</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.822291,38.096857,20
+						23.822892,38.096657,20
+						23.822940,38.096638,20
+						23.823075,38.096585,20
+						23.823999,38.096419,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 13</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.827691,38.097837,20
+						23.826596,38.098277,20
+						23.826481,38.098339,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 14</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.826481,38.098339,20
+						23.826326,38.098405,20
+						23.826203,38.098460,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 15</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819752,38.088992,20
+						23.819526,38.088763,20
+						23.818446,38.087562,20
+						23.818404,38.087508,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 16</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823999,38.096419,20
+						23.823374,38.094939,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 17</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823374,38.094939,20
+						23.823088,38.094261,20
+						23.822647,38.093452,20
+						23.822080,38.092685,20
+						23.821680,38.092233,20
+						23.821280,38.091780,20
+						23.820880,38.091328,20
+						23.820480,38.090876,20
+						23.820338,38.090724,20
+						23.819768,38.090138,20
+						23.819276,38.089665,20
+						23.818730,38.089238,20
+						23.817647,38.088311,20
+						23.818404,38.087508,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 18</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819752,38.088992,20
+						23.820261,38.089529,20
+						23.822520,38.090466,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 19</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.822520,38.090466,20
+						23.824377,38.091391,20
+						23.824916,38.092396,20
+						23.825444,38.093403,20
+						23.825368,38.094184,20
+						23.825291,38.094572,20
+						23.825236,38.094962,20
+						23.825085,38.095492,20
+						23.825247,38.096309,20
+						23.825607,38.097338,20
+						23.826481,38.098339,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 20</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819222,38.100779,20
+						23.819398,38.100638,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 21</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819398,38.100638,20
+						23.821518,38.099719,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 22</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819398,38.100638,20
+						23.819948,38.099219,20
+						23.819958,38.098530,20
+						23.820337,38.097929,20
+						23.822291,38.096857,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 23</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819398,38.100638,20
+						23.821948,38.101172,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 24</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.821518,38.099719,20
+						23.821948,38.101172,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 25</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823288,38.097036,20
+						23.822291,38.096857,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 26</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.821059,38.074239,20
+						23.821086,38.074557,20
+						23.821130,38.075246,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 27</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.821059,38.074239,20
+						23.820981,38.073209,20
+						23.820877,38.071357,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 28</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.818727,38.085524,20
+						23.818717,38.084007,20
+						23.819661,38.080590,20
+						23.820033,38.079356,20
+						23.820219,38.078739,20
+						23.820417,38.078124,20
+						23.820456,38.077993,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 29</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.820456,38.077993,20
+						23.820787,38.076903,20
+						23.820889,38.076278,20
+						23.821130,38.075246,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 30</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823114,38.079607,20
+						23.821788,38.078375,20
+						23.821245,38.078206,20
+						23.820456,38.077993,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 31</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.824814,38.084298,20
+						23.825171,38.082856,20
+						23.823177,38.082233,20
+						23.823583,38.080685,20
+						23.823572,38.080391,20
+						23.823384,38.080130,20
+						23.823114,38.079607,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 32</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.818404,38.087508,20
+						23.818560,38.086546,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 33</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.818560,38.086546,20
+						23.818727,38.085524,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 34</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.818560,38.086546,20
+						23.818016,38.086641,20
+						23.817573,38.086800,20
+						23.816808,38.087238,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 35</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.828756,38.102309,20
+						23.827391,38.101357,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 36</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.827391,38.101357,20
+						23.825318,38.099910,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 37</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.829330,38.102760,20
+						23.828756,38.102309,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 38</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.820306,38.101932,20
+						23.820647,38.101628,20
+						23.821948,38.101172,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 39</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.810037,38.096816,20
+						23.809641,38.095144,20
+						23.809317,38.093773,20
+						23.809122,38.092250,20
+						23.809098,38.090720,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 40</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.811991,38.075931,20
+						23.809253,38.076194,20
+						23.808598,38.076249,20
+						23.808270,38.076277,20
+						23.807942,38.076304,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 41</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.807942,38.076304,20
+						23.807584,38.075422,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 42</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.807584,38.075422,20
+						23.806839,38.075402,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 43</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.806839,38.075402,20
+						23.805295,38.075516,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 44</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.805295,38.075516,20
+						23.804364,38.074168,20
+						23.804334,38.073160,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 45</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809379,38.088206,20
+						23.809473,38.087617,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 46</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809098,38.090720,20
+						23.809130,38.089868,20
+						23.809146,38.089724,20
+						23.809154,38.089683,20
+						23.809163,38.089580,20
+						23.809217,38.089295,20
+						23.809379,38.088206,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 47</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.821518,38.099719,20
+						23.822461,38.099330,20
+						23.823984,38.098596,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 48</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.812018,38.072743,20
+						23.812087,38.072965,20
+						23.812168,38.073185,20
+						23.812307,38.073627,20
+						23.812288,38.074091,20
+						23.812281,38.074557,20
+						23.812256,38.074831,20
+						23.811991,38.075931,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 49</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.811991,38.075931,20
+						23.812559,38.076891,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 50</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823374,38.094939,20
+						23.824411,38.094433,20
+						23.824726,38.094282,20
+						23.824153,38.093172,20
+						23.823773,38.091956,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 51</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823773,38.091956,20
+						23.822520,38.090466,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 52</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.823773,38.091956,20
+						23.823892,38.089663,20
+						23.824044,38.087802,20
+						23.824158,38.086732,20
+						23.824272,38.085661,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 53</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.824272,38.085661,20
+						23.824814,38.084298,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 54</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809473,38.087617,20
+						23.812488,38.088198,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 55</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.812488,38.088198,20
+						23.814557,38.088596,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 56</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.812488,38.088198,20
+						23.811209,38.089507,20
+						23.811137,38.089550,20
+						23.811111,38.089566,20
+						23.811072,38.089601,20
+						23.811006,38.089652,20
+						23.810933,38.089696,20
+						23.810630,38.089858,20
+						23.809098,38.090720,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 57</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809098,38.090720,20
+						23.807893,38.090937,20
+						23.804503,38.091769,20
+						23.803923,38.091941,20
+						23.803403,38.092051,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 58</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.815367,38.088712,20
+						23.814557,38.088596,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 59</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.819752,38.088992,20
+						23.819013,38.089327,20
+						23.817809,38.089922,20
+						23.816567,38.088854,20
+						23.815935,38.088696,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 60</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.815935,38.088696,20
+						23.815367,38.088712,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 61</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.812559,38.076891,20
+						23.813601,38.078647,20
+						23.814053,38.079438,20
+						23.814374,38.080456,20
+						23.814545,38.080963,20
+						23.814802,38.081445,20
+						23.815841,38.083366,20
+						23.816149,38.084729,20
+						23.816509,38.086072,20
+						23.817333,38.087886,20
+						23.816939,38.088117,20
+						23.816431,38.088173,20
+						23.815935,38.088696,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 62</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.812559,38.076891,20
+						23.811812,38.077303,20
+						23.811771,38.078444,20
+						23.811541,38.079555,20
+						23.811138,38.080761,20
+						23.810512,38.081927,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 63</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.802100,38.089644,20
+						23.802835,38.090666,20
+						23.803539,38.091701,20
+						23.804035,38.092364,20
+						23.804849,38.093230,20
+						23.805284,38.093648,20
+						23.805751,38.094040,20
+						23.806559,38.094621,20
+						23.807355,38.095218,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 64</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.805423,38.100092,20
+						23.804341,38.099826,20
+						23.803641,38.099549,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 65</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.805423,38.100092,20
+						23.808293,38.101207,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 66</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.808293,38.101207,20
+						23.809656,38.101279,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 67</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809656,38.101279,20
+						23.812443,38.100540,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 68</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.810610,38.102297,20
+						23.809656,38.101279,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 69</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.801456,38.088776,20
+						23.802100,38.089644,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 70</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.810037,38.096816,20
+						23.810214,38.097352,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 71</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.810214,38.097352,20
+						23.810308,38.097618,20
+						23.810391,38.097887,20
+						23.810942,38.098886,20
+						23.812443,38.100540,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 72</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.807355,38.095218,20
+						23.808061,38.095924,20
+						23.808331,38.096225,20
+						23.808879,38.096819,20
+						23.809056,38.097005,20
+						23.809135,38.097104,20
+						23.809154,38.097123,20
+						23.809160,38.097235,20
+						23.810214,38.097352,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 73</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.813428,38.071719,20
+						23.814133,38.072735,20
+						23.815916,38.072605,20
+						23.817125,38.072699,20
+						23.819160,38.074011,20
+						23.821059,38.074239,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 74</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.811921,38.102947,20
+						23.810610,38.102297,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 75</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809473,38.087617,20
+						23.809717,38.086656,20
+						23.809870,38.086354,20
+						23.810475,38.085173,20
+						23.809923,38.083829,20
+						23.809595,38.083159,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 76</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.809595,38.083159,20
+						23.809092,38.082553,20
+						23.808127,38.081138,20
+						23.807307,38.079650,20
+						23.807375,38.077753,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 77</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.810512,38.081927,20
+						23.809595,38.083159,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 78</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.824975,38.098903,20
+						23.824894,38.098747,20
+						23.824654,38.098224,20
+						23.824447,38.097694,20
+						23.823999,38.096419,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 79</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.826203,38.098460,20
+						23.825628,38.098670,20
+						23.824975,38.098903,20 </coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name> Road Section 80</name>
+				<visibility>1</visibility>
+				<styleUrl>#roadSegment</styleUrl>
+				<LineString>
+					<altitudeMode>relativeToGround</altitudeMode>
+					<coordinates> 23.825318,38.099910,20
+						23.824975,38.098903,20 </coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

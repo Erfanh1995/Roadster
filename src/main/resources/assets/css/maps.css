@@ -1,0 +1,46 @@
+/**
+ * This file is responsible for the css code executed on the google maps tiles.
+ */
+
+/*the desired background for the map*/
+/* This actually should be done with javascript. Bugged otherwise.*/
+/*#map div{background-color:inherit !important}*/
+
+/** Hides the tiles when show maps background is off. */
+#map.disable-tiles div div div div div div img {
+    visibility: hidden
+}
+
+/** Makes sure the markers are not hidden. */
+#map.disable-tiles div div div div div div img[src="img/dot-blue.png"],
+#map.disable-tiles div div div div div div img[src="img/dot-green.png"],
+#map.disable-tiles div div div div div div img[src="img/dot-purple.png"],
+#map.disable-tiles div div div div div div img[src="img/dot-red.png"],
+#map.disable-tiles div div div div div div img[src="img/dot-yellow.png"]{
+    visibility: initial;
+}
+
+/** Removes some unnecessary google things. */
+#map div div .gmnoprint div div div img {
+    visibility: inherit !important
+}
+
+/** Blocked some google things as well */
+.gmnoprint {
+    /*visibility: hidden !important;*/
+}
+
+/** Background of a standard div */
+#map > div {
+    background-color: white;
+}
+
+.map .tooltip {
+    background: #f7f7f7;
+    border-radius: 5px;
+    padding: 3px 10px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    transition: opacity 0.5s ease-in-out;
+    user-select: none;
+    pointer-events: none;
+}

@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -P BBMC
+#PBS -l select=1:ncpus=1:mem=2GB
+#PBS -l walltime=00:02:00
+
+cd /home/jsle3577/JavaMapConstruction
+
+module load maven/3.5.2
+mvn package

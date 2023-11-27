@@ -1,0 +1,7 @@
+webPagePort: 9000
+openWebPageOnStart: false
+googleMapsApiKey: unnecessaryWithoutWebInterface
+datasetDirectory: data/
+savedStatesDirectory: savst/
+numOfProcesses: 4
+

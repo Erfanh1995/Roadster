@@ -184,14 +184,11 @@ However, the JSON formatter can only handle so many values. Therefore, we try to
 * **Roel Jacobs** - *Initial work* - Paper of his research is available on [ACM](https://dl.acm.org/citation.cfm?id=3139958.3139964)
 * **Jorrick Sleijster** - *Further research* - Master Thesis
 * **Jorren Hendricks** - *Further research* - Master Thesis
-* **Erfan Hosseini Sereshgi - *Further research*
-
-## License
-
-This project is property of the TU/e and Tulane University.
+* **Erfan Hosseini Sereshgi** - *Further research* - Ph.D. Dissertation
 
 ## Acknowledgments
 
 * **Kevin Buchin** as supervisor of Roel Jacobs, Jorrick Sleijster and Jorren Hendricks
 * **Joachim Gudmundsson** as second supervisor of Jorrick Sleijster
 * **Carola Wenk** as supervisor of Erfan Hosseini Sereshgi
+* **Maike Buchin**, **Rodrigo I. Silveira**, **Vera Sacristan** and **Frank Staals** as collaborators
